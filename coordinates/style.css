@@ -1,0 +1,31 @@
+span {
+  color: white;
+  position: relative;
+  top:0px;
+  left:50px;
+}
+div {
+  position:absolute;
+  height:120px;
+  width:120px;
+}
+img {
+  height:60px;
+  width:60px;
+}
+
+* {
+  cursor: none;
+}
+
+.vL {
+  position:absolute;
+  border-left: thin solid white;
+  height:100%;
+}
+
+.hL {
+  position: absolute;
+  border-top: thin solid white;
+  width:100%;
+}

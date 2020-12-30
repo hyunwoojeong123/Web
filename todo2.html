@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+</head>
+<body>
+  <input type="text">
+  <button onclick="add();">추가</button>
+  <ul>   
+  </ul>
+</body>
+<script>
+function add() {
+  const todo = document.querySelector('input').value
+  const li = document.createElement('li')
+  li.innerHTML = todo
+  const delbtn = document.createElement('button')
+  delbtn.innerHTML = '삭제'
+  li.appendChild(delbtn)
+  delbtn.onclick = function(){li.remove()}
+  const all = document.querySelector('ul')
+  all.appendChild(li)
+  document.querySelector('input').value = ""
+}
+</script>
+</html>

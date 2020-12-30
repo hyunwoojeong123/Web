@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span style="position:fixed;">
+    <button id = 'sb100' >Scroll by 100px(y)</button>
+    <button id = 'st100' >Scroll to 100px(y)</button>
+    <button id = 'stsp' >Scroll into sp</button>
+  </span>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div id = "sp"></div>
+  <div></div>
+  <div></div>
+  <script>
+    const sp = document.querySelector('#sp')
+    const clientRect = sp.getBoundingClientRect()
+    sp.addEventListener('click',function(event){
+      console.log('sp')
+      
+      console.log(clientRect)
+      console.log(`client: ${event.clientX},${event.clientY}`)
+      console.log(`page: ${event.pageX},${event.pageY}`)
+    })
+    const sb100 = document.querySelector('#sb100')
+    const st100 = document.querySelector('#st100')
+    const stsp = document.querySelector('#stsp')
+    sb100.addEventListener('click',(event)=>{
+      window.scrollBy(0,100);
+    })
+    st100.addEventListener('click',(event)=>{
+      window.scrollTo(0,100);
+    })
+    stsp.addEventListener('click',(event)=>{
+      
+      sp.scrollIntoView();
+    })
+  </script>
+  <style>
+    body {
+      background-color: black;
+    }
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: beige;
+      margin: 10px;
+    }
+    #sp {
+      background-color: chocolate;
+    }
+  </style>
+</body>
+</html>

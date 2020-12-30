@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+</head>
+<body>
+  <input type="text">     <!-- 입력을 받을 input -->
+  <button>Add</button>    <!-- 클릭 시 todo item을 추가해주는 버튼 -->
+  <ul>                    <!-- 순서 없는 list (Unordered List) -->
+    <li>Item 1</li>       <!-- Todo Item 1 -->
+    <li>Item 2</li>       <!-- Todo Item 2 -->
+  </ul>
+
+  <script>
+    const input = document.querySelector('input')
+    function addTodoUpdateDelete () {
+      const content = input.value
+  
+      // 빈값이 들어갈 수 없게
+      // if (content !== '') {
+      if (content) {
+        const li = document.createElement('li')
+        // li.innerText = todo
+        li.innerText = content
+    
+        const ul = document.querySelector('ul')
+        ul.appendChild(li)
+        // 입력했을 때 글자가 안지워지는게 아쉬워
+        input.value = ''
+
+    // Update(취소선을 만들어보자)
+        li.addEventListener('click', function (event) {
+        
+        event.target.classList.toggle('done')
+        })
+          
+        // Delete
+        // 조건이 없음! li에 remove가 들어감과 동시에 삭제가됨
+        // li.remove()
+        // button을 만듦
+        const deleteButton = document.createElement('button')
+        deleteButton.innerText = 'X'
+        // 속성으로 될때는 margin-left가 marginLeft로 대문자로 바뀜
+        deleteButton.style.marginLeft = '10px'
+        li.appendChild(deleteButton)
+        // 이 버튼이 클릭됐을 때 삭제되게 만듦!
+        deleteButton.addEventListener('click', function () {
+          li.remove()
+        })
+
+
+      } else {
+        alert('빈 값 안됨!!!!')
+      }
+
+    }
+
+    // button 요소를 선택하고, 클릭되었을 때 addTodo 함수를 실행한다.
+    const button = document.querySelector('button')
+    button.addEventListener('click',addTodoUpdateDelete)
+    // input.addEventListener('keydown',addTodo)
+    input.addEventListener('keydown',function (event) {
+      // event의 code속성이 Enter라면 addTodoUpdateDelete함수를 호출(직접호출이라 ()적어줌)할래!
+      if (event.code === 'Enter') {
+        addTodoUpdateDelete()
+      }
+    })
+    // // 기명함수
+    // function functionName () {
+    //   //코드
+    // }
+    // //  익명함수
+    // function () {}
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  window.screen: <span id='sw'>0</span>, <span id='sh'>0</span><br>
+  window.outer: <span id='ow'>0</span>, <span id='oh'>0</span><br>
+  window.inner: <span id='iw'>0</span>, <span id='ih'>0</span><br>
+  documentElement.clientWidth: <span id='cw'>0</span>, <span id='ch'>0</span><br>
+
+  
+  <script>
+    function display() {
+    const sw = document.querySelector('#sw')
+    const sh = document.querySelector('#sh')
+    const ow = document.querySelector('#ow')
+    const oh = document.querySelector('#oh')
+    const iw = document.querySelector('#iw')
+    const ih = document.querySelector('#ih')
+    const cw = document.querySelector('#cw')
+    const ch = document.querySelector('#ch')
+    sw.innerHTML = window.screen.width
+    sh.innerHTML = window.screen.height
+    ow.innerHTML = window.outerWidth
+    oh.innerHTML = window.outerHeight
+    iw.innerHTML = window.innerWidth
+    ih.innerHTML = window.innerHeight
+    cw.innerHTML = document.documentElement.clientWidth
+    ch.innerHTML = document.documentElement.clientHeight
+    
+    }
+    display()
+    window.addEventListener("resize",display);
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      img,button {
+        position:relative;
+        display:block;
+        left:50%;
+      }
+    </style>
+  </head>
+  <body>
+    <button>토끼 찾아라!</button>
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img id = "rabbit" src="img/rabbit.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <img src="img/carrot.png" alt="">
+    <script>
+      const btn = document.querySelector('button')
+      const rbt = document.querySelector('#rabbit')
+      
+      btn.onclick = function(){
+        rbt.scrollIntoView()
+      }
+    </script>
+  </body>
+</html>
